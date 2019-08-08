@@ -12,7 +12,7 @@ import datetime
 from random import randint
 usr ="[User]"
 pwd = "[Password]"
-browser = webdriver.Firefox()
+browser = webdriver.Firefox(executable_path="./geckodriver")
 browser.set_page_load_timeout(30)
 try: 
     cookies = pickle.load(open("cookies.pkl", "rb"))
@@ -35,6 +35,10 @@ login_box.click()
 # Save Login cookies
 pickle.dump( browser.get_cookies() , open("cookies.pkl","wb"))
 
+
+#input('Press anything to quit') 
+#browser.quit() 
+#print("Finished") 
 sleep(15)
 browser.get('https://feature.nextmag.com.tw/service2019/vote')
 sleep(5)
